@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Guessing Game Final</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Roboto+Mono:wght@400;500&family=Trispace&display=swap" rel="stylesheet"> 
+    <!-- the MAIN.CSS file is linked here -->
+  </head>
+
+  <body>
+    <div class="main">
+      <header id="header">
+      <h1>Guessing Game</h1>
+      </header>
+      <p>The rules are simple: guess a number between 1 and 100</p>
+      <p id="hint-message">...click the hint button if you need a little help!</p>
+      
+      <input id="input-number" maxlength="3" autofocus=autofocus placeholder="enter #">
+         <button id="submit" type="submit">Go!</button>
+
+      <h2>Previous Guesses</h2>
+      <ul id="guess-list">
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+          <li class="guess">-</li>
+      </ul>
+      <p id="status-message">Take your first guess.<span id="highLow"></span></p>
+      <div class="game-play">
+         
+         <p>
+          <button class="hint-replay" id="get-hint">Get Hint</button>
+          <button class="hint-replay" id="reset" type="reset" onclick="playAgain()">Play Again!</button>
+         </p>
+      </div>
+      <!-- <div id="footer" class="center">
+
+        <div>
+          <h4>Project by C. Felix Lee</h4>
+        </div>
+    
+      </div> -->
+  </div>
+<footer></footer>
+
+
+
+    <script src='game.js'></script>
+    <!-- uncomment the script tag above when you are ready to add JavaScript to your document -->
+  </body>
+
+</html>
