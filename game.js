@@ -88,17 +88,17 @@ function generateWinningNumber() {
 function shuffle(array) {
   let length = array.length,
     temp,
-    i;
+    random;
 
   // While there remain elements to shuffle…
   while (length) {
     // Pick a remaining element…
-    i = Math.floor(Math.random() * length--);
+    random = Math.floor(Math.random() * length--);
 
     // And swap it with the current element.
     temp = array[length];
-    array[length] = array[i];
-    array[i] = temp;
+    array[length] = array[random];
+    array[random] = temp;
   }
 
   return array;
@@ -128,10 +128,7 @@ function newGame() {
     }
   });
   submitGuess.addEventListener("click", (e) => {
-    //targeting the players input, turn it into a number
-    const playersGuess = Number(document.getElementById("input-number").value);
-    game.playersGuessSubmission(playersGuess);
-    document.getElementById("input-number").value = "";
+    processInput();
   });
 
   const getHint = document.querySelector("#get-hint");
