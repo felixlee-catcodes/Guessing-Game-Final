@@ -18,8 +18,6 @@ class Game {
     } else {
       this.playersGuess = guess;
       statusMessage.textContent = this.checkGuess();
-      console.log(this.playersGuess);
-      console.log(this.pastGuesses);
     }
     const hintMessage = document.querySelector("#hint-message");
     hintMessage.textContent = "...click the hint button if you need a little help!";
@@ -69,7 +67,6 @@ class Game {
         }
       }
     }
-    console.log(result);
     document.querySelector(`#guess-list li:nth-child(${this.pastGuesses.length})`).textContent = this.playersGuess;
     return result;
   }
@@ -89,19 +86,19 @@ function generateWinningNumber() {
 }
 
 function shuffle(array) {
-  let m = array.length,
-    t,
+  let length = array.length,
+    temp,
     i;
 
   // While there remain elements to shuffle…
-  while (m) {
+  while (length) {
     // Pick a remaining element…
-    i = Math.floor(Math.random() * m--);
+    i = Math.floor(Math.random() * length--);
 
     // And swap it with the current element.
-    t = array[m];
-    array[m] = array[i];
-    array[i] = t;
+    temp = array[length];
+    array[length] = array[i];
+    array[i] = temp;
   }
 
   return array;
@@ -118,9 +115,19 @@ function newGame() {
   const game = new Game();
 
   const submitGuess = document.getElementById("submit");
-  //target the submit button, add eventListenter
+  const inputNum = document.getElementById("input-number");
+
+  const processInput = () => {
+    const playersGuess = Number(document.getElementById("input-number").value);
+    game.playersGuessSubmission(playersGuess);
+    document.getElementById("input-number").value = "";
+  };
+  inputNum.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      processInput();
+    }
+  });
   submitGuess.addEventListener("click", (e) => {
-    //keycode = 13
     //targeting the players input, turn it into a number
     const playersGuess = Number(document.getElementById("input-number").value);
     game.playersGuessSubmission(playersGuess);
