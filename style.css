@@ -1,6 +1,7 @@
 /* Write your CSS code in this file */
 body {
     display: flex;
+    flex-direction: row;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -115,4 +116,13 @@ button:hover {
     background-color: black;
     border-radius: 3px;
     border: 2px solid orange;
+}
+
+footer {
+    background: #333333d7;
+    color: white;
+    bottom: 0;
+    width: 100vw;
+    position: fixed;
+    text-align: center;
 }
